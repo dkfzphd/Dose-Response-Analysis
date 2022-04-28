@@ -28,3 +28,19 @@ ggplot(secalonic,aes(x=dose,y=rootl))+
 
 ```
 
+In weed science a four-parameter log-logistic model is often used to describe
+dose-response relationships. We can use the model ﬁtting function **drm()**,
+which is the pivotal function in the package drc for ﬁtting dose-response mod-
+els.
+```{r}
+secalonic.LL.4 <- drm(rootl ~ dose,
+data = secalonic,
+fct = LL.4())
+```
+
+Self choic of rootl ~ dose with lm()
+```{r}
+secalonic.lm <- lm(rootl ~ dose,data = secalonic)
+
+```
+
