@@ -1,0 +1,30 @@
+---
+title: "Untitled"
+author: "ManBuXiaoCun"
+date: '2022-04-28'
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r library-in-nedd}
+library(drc)
+library(drcData)
+library(boot)
+library(lmtest)
+library(metafor)
+library(sandwich)
+library(tidyverse)
+```
+
+Inhibitory eﬀect of secalonic acid on plant growth 
+```{r}
+ggplot(secalonic,aes(x=dose,y=rootl))+
+  geom_point()
+
+```
+
