@@ -23,9 +23,13 @@ library(tidyverse)
 
 Inhibitory eﬀect of secalonic acid on plant growth 
 ```{r}
-ggplot(secalonic,aes(x=dose,y=rootl))+
-  geom_point()
+plot1 <- ggplot(secalonic,aes(x=dose,y=rootl))+
+  geom_point()+
+  xlim(0,0.35)
+plot1
 
+plot2 <- plot1+scale_x_log10()
+plot2
 ```
 
 In weed science a four-parameter log-logistic model is often used to describe
@@ -36,11 +40,21 @@ els.
 secalonic.LL.4 <- drm(rootl ~ dose,
 data = secalonic,
 fct = LL.4())
+plot(secalonic.LL.4,
+bp = 1e-3, broken = TRUE,
+ylim = c(0, 7),
+xlim = c(0, 0.35),
+xlab = "Dose (mM)",
+ylab = "Root length (cm)")
+```
+Replot by ggplot2 of secalonic.LL.4
+```{r}
+# ggplot()
 ```
 
-Self choic of rootl ~ dose with lm()
+Self choic of rootl ~ dose with **lm()**
+The result is quite different from **drm()** function
 ```{r}
 secalonic.lm <- lm(rootl ~ dose,data = secalonic)
-
 ```
 
