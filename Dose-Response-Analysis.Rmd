@@ -47,6 +47,12 @@ xlim = c(0, 0.35),
 xlab = "Dose (mM)",
 ylab = "Root length (cm)")
 ```
+
+```{r}
+summary(secalonic.LL.4)
+```
+
+
 Replot by ggplot2 of secalonic.LL.4
 ```{r}
 # ggplot()
@@ -56,5 +62,13 @@ Self choic of rootl ~ dose with **lm()**
 The result is quite different from **drm()** function
 ```{r}
 secalonic.lm <- lm(rootl ~ dose,data = secalonic)
+```
+
+Fish toxicity
+```{r}
+O.mykiss.EXD.2 <- drm(weight ~ conc,
+data = O.mykiss,
+fct = EXD.2(),
+na.action = na.omit)
 ```
 
